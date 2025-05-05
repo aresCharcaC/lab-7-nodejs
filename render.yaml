@@ -44,16 +44,8 @@ services:
     dockerContext: ./react-jwt-auth
     plan: free
     envVars:
-      - key: REACT_APP_API_HOST
-        fromService:
-          name: jwt-auth-backend
-          type: web
-          property: host
-      - key: REACT_APP_API_PORT
-        fromService:
-        name: jwt-auth-backend
-        type: web
-        property: port
+      - key: REACT_APP_API_URL
+        value: https://jwt-auth-backend.onrender.com
       # Alternativa usando propiedades válidas:
       # - key: REACT_APP_API_HOST
       #   fromService:
