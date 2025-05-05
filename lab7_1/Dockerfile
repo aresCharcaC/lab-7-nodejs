@@ -2,8 +2,14 @@ FROM node:16
 
 WORKDIR /usr/src/app
 
-# Copiar todo el contenido primero
+# Verificar contenido (para diagnóstico)
+RUN ls -la
+
+# Copiar TODOS los archivos primero
 COPY . .
+
+# Verificar contenido después de copiar
+RUN ls -la
 
 # Instalar dependencias
 RUN npm install
