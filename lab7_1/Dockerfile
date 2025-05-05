@@ -2,12 +2,11 @@ FROM node:16
 
 WORKDIR /usr/src/app
 
-# Instalar dependencias
-COPY package*.json ./
-RUN npm install
-
-# Copiar código fuente
+# Copiar todo el contenido primero
 COPY . .
+
+# Instalar dependencias
+RUN npm install
 
 # Exponer puerto
 EXPOSE 3000
