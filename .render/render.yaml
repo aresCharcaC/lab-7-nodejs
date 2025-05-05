@@ -3,7 +3,7 @@ services:
   - type: web
     name: jwt-auth-backend
     env: docker
-    dockerfilePath: ./backend/Dockerfile
+    dockerfilePath: ./lab7_1/Dockerfile
     dockerContext: ./backend
     plan: free
     envVars:
@@ -40,7 +40,7 @@ services:
   - type: web
     name: jwt-auth-frontend
     env: docker
-    dockerfilePath: ./frontend/Dockerfile
+    dockerfilePath: ./react-jwt-auth/Dockerfile
     dockerContext: ./frontend
     plan: free
     envVars:
