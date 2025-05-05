@@ -4,7 +4,7 @@ services:
     name: jwt-auth-backend
     env: docker
     dockerfilePath: ./lab7_1/Dockerfile
-    dockerContext: ./backend
+    dockerContext: lab7_1
     plan: free
     envVars:
       - key: NODE_ENV
@@ -41,7 +41,7 @@ services:
     name: jwt-auth-frontend
     env: docker
     dockerfilePath: ./react-jwt-auth/Dockerfile
-    dockerContext: ./frontend
+    dockerContext: ./react-jwt-auth
     plan: free
     envVars:
       - key: REACT_APP_API_URL
