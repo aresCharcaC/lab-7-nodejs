@@ -1,0 +1,57 @@
+services:
+  # Servicio Backend
+  - type: web
+    name: jwt-auth-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3000
+      - key: DB_HOST
+        fromDatabase:
+          name: jwt-auth-db
+          property: host
+      - key: DB_NAME
+        fromDatabase:
+          name: jwt-auth-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: jwt-auth-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: jwt-auth-db
+          property: password
+      - key: DB_PORT
+        fromDatabase:
+          name: jwt-auth-db
+          property: port
+      - key: DB_SSL
+        value: "true"
+
+  # Servicio Frontend
+  - type: web
+    name: jwt-auth-frontend
+    env: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: free
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: jwt-auth-backend
+          type: web
+          property: url
+
+# Base de datos
+databases:
+  - name: jwt-auth-db
+    plan: free
+    databaseName: authdb

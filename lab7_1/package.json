@@ -1,0 +1,28 @@
+{
+  "name": "lab7_1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "postdeploy": "node scripts/init-roles.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "mysql2": "^3.14.1",
+    "sequelize": "^6.37.7"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
